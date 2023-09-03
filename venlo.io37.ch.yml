@@ -17,7 +17,7 @@
 
   tasks:
     - include_vars:
-        dir: "../group_vars/sites"
+        dir: "group_vars/sites"
       when: hostvars[inventory_hostname]['ansible_user'] is undefined
 
     - name: 'lookup subdomain ip'
@@ -28,7 +28,6 @@
       copy:
         src: venlo.io37.ch.nginx.conf
         dest: /etc/nginx/conf.d/{{ url }}.conf
-        force: no
 
     - name: Creates directory
       file:
